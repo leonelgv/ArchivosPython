@@ -22,10 +22,8 @@ class Archivos:
     def escribirArchivo(self, archivo, lista):
         file = open(archivo, 'w')
         for f in range(0, len(lista)):
-            for c in range(0, len(lista[f])):
-                linea = str(lista[f][c]) + '\t'
-                file.write(linea)
-            file.write('\n')
+            linea = str(lista[f][0]) + ',' + str(lista[f][1]) + ',' + str(lista[f][2]) + '\n'
+            file.write(linea)
         file.close()
 
 def main():
@@ -41,7 +39,7 @@ def main():
         area = circulo.calcularArea(radios[c])
         perimetro = circulo.calcularPerimetro(radios[c])
         resultados.append([radios[c], area, perimetro])
-    archivo.escribirArchivo('resultados.txt',resultados)
+    archivo.escribirArchivo('resultados.csv',resultados)
     #print(resultados)
 
 if __name__==  '__main__':
